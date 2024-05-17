@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Drop Down Sidebar Menu | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i  class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Nấm Nhà Làm</span>
+    </div>
+    <ul class="nav-links">
+        <li >
+            <div  class="home-content">
+                <i  style="width:500px" class='bx bx-menu' ></i>
+            </div>
+        </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Dashboard</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Product</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Product</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'AddP')" >Add Product</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'DeleteP')" >Delete Product</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'UpdateP')" >Update Product</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'RetriveP')" >Retrive Product</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Voucher</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Voucher</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'AddV')" >Add Voucher</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'DeleteV')" >Delete Voucher</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'UpdateV')" >Update Voucher</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'RetriveV')" >Retrive Voucher</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Variation</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Variation</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'AddPV')" >Add variation</a></li>
+          <li><a class="tablinks" onclick="openCity(event, 'RetrivePV')" >Retrive variation</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Update</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name tablinks" onclick="openCity(event, 'UpdateAu')">Update Automately</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Delete</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name tablinks" onclick="openCity(event, 'DeleteAu')">Delete Automately</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <img src="mushroom.jpg" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">Nấm Nhà Làm </div>
+        <div class="job">Group Nấm</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+
+    <div id="AddP" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Add a New Product</legend>
+          <form id="addForm" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="name">Product Name:</label>
+                  <input type="text" id="name" name="name" required><br><br>        
+              </div>
+              <div class='row'>
+                  <label for="regular_price">Regular Price:</label>
+                  <input type="text" id="regular_price" name="regular_price" required><br><br>
+              </div>
+              <div class='row'>
+                  <label for="sale_price">Sale Price:</label>
+                  <input type="text" id="sale_price" name="sale_price"><br><br>
+              </div>
+              <div class='row'>
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="description" required></textarea><br><br>        
+              </div>
+              <input type="submit" value="Add Product">
+          </form>
+          </div>
+      </div>
+      <div id="response"></div>
+  </div>
+  
+  <div id="DeleteP" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Delete Product</legend>
+          <form id="deleteForm" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="id">Enter the ID of the product you want to delete: </label>
+                  <input type="text" id="id" name="id" required><br><br>
+              </div>
+              <input type="button" id="deleteBtn" value="Delete Product">
+          </form>
+          </div>
+      </div>
+      <div id="responseDelete"></div>
+  </div>
+  
+  <div id="UpdateP" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Update Product</legend>
+          <form id="updateForm" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="id">Enter the ID of the product you want to update: </label>
+                  <input type="text" id="id" name="id" required><br><br>
+              </div>
+              <div class='row'>
+                  <label for="name">Enter the new product name:</label>
+                  <input type="text" id="name" name="name" required><br><br>
+      
+              </div>
+              <div class='row'>
+                  <label for="regular_price">Enter the new regular price:</label>
+                   <input type="text" id="regular_price" name="regular_price" required><br><br>
+              </div>
+              <input type="button" id="updateBtn" value="Update Product">
+          </form>
+          </div>
+      </div>
+  
+      <div id="responseUpdate"></div>
+  </div>
+
+  <div id="RetriveP" class="tabcontent">
+    <div id="registration-form2">
+        <div class='fieldset'>
+        <legend>Retrieve Product</legend>
+        <table id="productTable">
+            <thead>
+                <tr class="table-header">
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+                <!-- Product data will be loaded here -->
+            </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+
+  <div id="AddV" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Add a New Voucher</legend>
+          <form id="addFormvoucher" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="namevoucher">Code Name:</label>
+                  <input type="text" id="namevoucher" name="namevoucher" required><br><br>
+              </div>
+              <div class='row'>
+                  <label for="amountvoucher">Amount:</label>
+                  <input type="text" id="amountvoucher" name="amountvoucher" required><br><br>
+              </div>
+              <div class='row'>
+                  <label for="minimum_amountvoucher">Minimum Amount:</label>
+                  <input type="text" id="minimum_amountvoucher" name="minimum_amountvoucher"><br><br>
+
+              </div>
+              <div class='row'>
+                  <label for="expiry_datevoucher">Expiry date:</label><br>
+                  <input type="date" id="expiry_datevoucher" name="expiry_datevoucher"><br><br>        
+              </div>
+              <input type="submit" value="Add Voucher">
+          </form>
+          </div>
+      </div>
+      <div id="responseV"></div>
+  </div>
+
+  <div id="DeleteV" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Delete Voucher</legend>
+          <form id="deleteFormV" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="idV">Enter the ID of the voucher you want to delete: </label>
+                  <input type="text" id="idV" name="idV" required><br><br>            
+              </div>
+              <input type="button" id="deleteBtnV" value="Delete Voucher">
+          </form>
+          </div>
+      </div>
+      <div id="responseDeleteV"></div>
+  </div>
+
+  <div id="UpdateV" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Update Voucher</legend>
+          <form id="updateFormV" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="idvoucher">Enter the ID of the voucher you want to update: </label>
+                  <input type="text" id="id" name="id" required><br><br>
+              </div>
+              <div class='row'>
+                  <label for="namevoucher">New Code Name:</label>
+                  <input type="text" id="namevoucher" name="namevoucher" required><br><br>
+      
+              </div>
+              <div class='row'>
+                  <label for="amountvoucher">New Amount:</label>
+                  <input type="text" id="amountvoucher" name="amountvoucher" required><br><br>
+
+              </div>
+              <div class='row'>
+                  <label for="minimum_amountvoucher">New Minimum Amount:</label>
+                  <input type="text" id="minimum_amountvoucher" name="minimum_amountvoucher"><br><br>
+      
+              </div>
+              <div class='row'>
+                  <label for="expiry_datevoucher">New Expiry date:</label><br>
+                  <input type="date" id="expiry_datevoucher" name="expiry_datevoucher"><br><br>
+          
+              </div>
+
+              <input type="button" id="updateBtnV" value="Update Voucher">
+          </form>
+          </div>
+      </div>
+  </div>
+
+  <div id="RetriveV" class="tabcontent">
+      <div id="registration-form2">
+          <div class='fieldset'>
+          <legend>Retrieve Voucher</legend>
+          <table id="voucherTable">
+              <thead>
+                  <tr class="table-header">
+                      <th>Voucher ID</th>
+                      <th>Voucher Name</th>
+                      <th>Voucher Price</th>
+                      <th>Voucher Expiry Date</th>
+
+                  </tr>
+              </thead>
+              <tbody id="voucherTableBody">
+                  <!-- Product data will be loaded here -->
+              </tbody>
+          </table>
+          </div>
+      </div>
+  </div>
+
+  <div id="AddPV" class="tabcontent">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Add a New Variable Product</legend>
+          <form id="variationForm" action="#" method="post" data-validate="parsley">
+              <div class='row'>
+                  <label for="product_name">Product Name:</label>
+                  <input type="text" id="product_name" name="product_name" required>
+
+              </div>
+              <div class='row'>
+                  <label for="product_description">Product Description:</label>
+                  <textarea id="product_description" name="product_description" required></textarea>
+              </div>
+              <div class='row'>
+                  <label for="num_variations">Number of Variations:</label><br>
+                  <input type="number" id="num_variations" name="num_variations" min="1" required><br><br>
+              </div>
+              
+              <div id="variationsContainer"></div>
+
+              <input type="submit" value="Add Product">
+          </form>
+          </div>
+      </div>
+      <div id="responseVariation"></div>
+  </div>
+
+  <div id="RetrivePV" class="tabcontent">
+      <div id="registration-form2">
+          <div class='fieldset'>
+          <legend>Variation Products</legend>
+          <table id="voucherTable">
+              <thead>
+                  <tr class="table-header">
+                      <th>Product Name</th>
+                      <th>Product ID</th>
+                      <th>Product Type</th>
+                      <th>Variations</th>
+                  </tr>
+              </thead>
+              <tbody id="productsVTableBody">
+                  <!-- Product data will be loaded here -->
+              </tbody>
+          </table>
+          </div>
+      </div>
+  </div>
+  </section>
+  
+  <script src="script.js"></script>
+
+</body>
+</html>

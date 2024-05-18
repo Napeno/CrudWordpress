@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $newProduct = $woocommerce->post('products', $data);
-        echo "New product created successfully.<br>";
-        echo "<a href='index.html'>Add Another Product</a>";
+        echo "<img id='imgres1' src='/finish-01.png'>";
+        echo "<p class='responseText'>New product created successfully!</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to create product: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {

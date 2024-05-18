@@ -63,7 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $response = $woocommerce->post('products', $data);
-        echo "New variable product created: " . $response->name . " (ID: " . $response->id . ")";
+        echo "<img id='imgres7' src='/finish-01.png'>";
+        echo "<p class='responseText'>New variable product created: " . $response->name . " (ID: " . $response->id . ")</p>";
     } catch (Exception $e) {
         echo "Error creating product: " . $e->getMessage();
     }

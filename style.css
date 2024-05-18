@@ -7,6 +7,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body{
+  background: #E4E9F7;
+}
+
 .sidebar{
   position: fixed;
   top: 0;
@@ -211,8 +215,7 @@
 }
 .home-section{
   position: relative;
-  background: #E4E9F7;
-  height: 100vh;
+  height: 100%s;
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
@@ -464,6 +467,10 @@
     cursor: pointer;
 }
 
+#deleteAuDis {
+  width: 100%;
+  text-align: center;
+}
 table{
     width:100%;
     text-align: center;
@@ -486,4 +493,35 @@ table{
     width: 100%;
     height: 70px;
     background-color: white;
+}
+
+.responseshow{
+  display: none;
+  background-color: rgb(254, 254, 254);
+  width: 30%;
+  height: 200px;
+  margin-left: 10%;
+  padding-top: 30px;
+}
+
+#imgres1, #imgres2,#imgres3,#imgres4,#imgres5,#imgres6,#imgres7{
+  display: none;       /* Ensures the image is a block element */
+  max-width: 20%;       /* Sets the maximum width to 20% of its container */
+  margin-bottom: 10px;  /* Adds space below the image */
+  margin-left: auto;       /* Ensures there's no left margin, aligning it to the left */
+  margin-right: auto;
+}
+
+.responseText{
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(7, 7, 7);
+}
+
+.showflex{
+  display: flex;
 }

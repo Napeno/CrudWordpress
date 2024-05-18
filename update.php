@@ -32,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $woocommerce->put("products/{$product_id}", $data);
-        echo "Product updated successfully.<br>";
+        echo "<img id='imgres3' src='/finish-01.png'>";
+        echo "<p class='responseText'>Product updated successfully.</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to update product: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {

@@ -25,7 +25,7 @@ if ($dayOfMonth === '16') {
     $products = $woocommerce->get('products');
 
     foreach ($products as $product) {
-        $product_id = 325;
+        $product_id = $product->id;
         $regular_price = floatval($product->regular_price); // Cast regular_price to float
         $sale_price = $regular_price * 0.5;
 
@@ -43,3 +43,4 @@ if ($dayOfMonth === '16') {
 } else {
     echo "Today is not the specified discount day.";
 }
+?>

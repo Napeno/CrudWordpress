@@ -13,6 +13,8 @@ sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
 
+// <!-- Ajax add product -->
+
 document.getElementById('addForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -25,32 +27,15 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
     .then(response => response.text())
     .then(data => {
         document.getElementById('response').innerHTML = data;
+        document.getElementById("addForm").reset();
+        document.getElementById("response").style.display = "block";
+        document.getElementById("imgres1").style.display = "block";
     })
     .catch(error => {
         document.getElementById('response').innerHTML = 'Error: ' + error;
     });
 });
 
-// <!-- Ajax add product -->
-
-    document.getElementById('addForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const formData = new FormData(this);
-
-        fetch('create.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('response').innerHTML = data;
-        })
-        .catch(error => {
-            document.getElementById('response').innerHTML = 'Error: ' + error;
-        });
-    });
-   
 
 // <!-- Ajax for Delete Product -->
 
@@ -65,6 +50,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseDelete').innerHTML = data;
+            document.getElementById("deleteForm").reset();
+            document.getElementById("responseDelete").style.display = "block";
+            document.getElementById("imgres2").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseDelete').innerHTML = 'Error: ' + error;
@@ -84,6 +72,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseUpdate').innerHTML = data;
+            document.getElementById("updateForm").reset();
+            document.getElementById("responseUpdate").style.display = "block";
+            document.getElementById("imgres3").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseUpdate').innerHTML = 'Error: ' + error;
@@ -137,6 +128,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseV').innerHTML = data;
+            document.getElementById("addFormvoucher").reset();
+            document.getElementById("responseV").style.display = "block";
+            document.getElementById("imgres4").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseV').innerHTML = 'Error: ' + error;
@@ -157,6 +151,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseDeleteV').innerHTML = data;
+            document.getElementById("deleteFormV").reset();
+            document.getElementById("responseDeleteV").style.display = "block";
+            document.getElementById("imgres5").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseDeleteV').innerHTML = 'Error: ' + error;
@@ -176,6 +173,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseUpdateV').innerHTML = data;
+            document.getElementById("updateFormV").reset();
+            document.getElementById("responseUpdateV").style.display = "block";
+            document.getElementById("imgres6").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseUpdateV').innerHTML = 'Error: ' + error;
@@ -269,6 +269,9 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
         .then(response => response.text())
         .then(data => {
             document.getElementById('responseVariation').innerHTML = data;
+            document.getElementById("variationForm").reset();
+            document.getElementById("responseVariation").style.display = "block";
+            document.getElementById("imgres7").style.display = "block";
         })
         .catch(error => {
             document.getElementById('responseVariation').innerHTML = 'Error: ' + error;
@@ -317,6 +320,48 @@ document.getElementById('addForm').addEventListener('submit', function(event) {
             <li>${variation.attributes.join(', ')}, Stock: ${variation.stock_quantity}</li>
         `).join('')}</ul>`;
     }
+
+// <!-- Ajax for Delete Products Automate-->
+
+document.getElementById('deleteAuForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('DieuKien_delete.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('deleteResult').innerHTML = data;
+        document.getElementById('deleteResult').style.display = 'block';
+        document.getElementById('imgres7').style.display = 'block';
+    })
+    .catch(error => {
+        document.getElementById('responseVariation').innerHTML = 'Error: ' + error;
+    });
+});
+
+document.getElementById('updateAuForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('DieuKien_update.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('updateResult').innerHTML = data;
+        document.getElementById('updateResult').style.display = 'block';
+    })
+    .catch(error => {
+        document.getElementById('updateResult').innerHTML = 'Error: ' + error;
+    });
+});
+    
 
     function openCity(evt, cityName) {
       var i, tabcontent, tablinks;

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Drop Down Sidebar Menu | CodingLab </title>
+    <title> Lab04-RestAPI </title>
     <link rel="stylesheet" href="style.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -80,7 +80,7 @@
       <li>
         <a href="#">
           <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Update</span>
+          <span class="link_name tablinks" onclick="openCity(event, 'UpdateAu')">Update</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name tablinks" onclick="openCity(event, 'UpdateAu')">Update Automately</a></li>
@@ -89,7 +89,7 @@
       <li>
         <a href="#">
           <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Delete</span>
+          <span class="link_name tablinks" onclick="openCity(event, 'DeleteAu')">Delete</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name tablinks" onclick="openCity(event, 'DeleteAu')">Delete Automately</a></li>
@@ -112,7 +112,8 @@
   <section class="home-section">
 
     <div id="AddP" class="tabcontent">
-      <div id="registration-form">
+      <div class="showflex">
+        <div id="registration-form">
           <div class='fieldset'>
           <legend>Add a New Product</legend>
           <form id="addForm" action="#" method="post" data-validate="parsley">
@@ -136,10 +137,15 @@
           </form>
           </div>
       </div>
-      <div id="response"></div>
+      
+      <div id="response" class="responseshow">
+
+      </div>
+    </div>
   </div>
   
   <div id="DeleteP" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Delete Product</legend>
@@ -152,10 +158,12 @@
           </form>
           </div>
       </div>
-      <div id="responseDelete"></div>
+      <div id="responseDelete" class="responseshow"></div>
+    </div>
   </div>
   
   <div id="UpdateP" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Update Product</legend>
@@ -178,7 +186,8 @@
           </div>
       </div>
   
-      <div id="responseUpdate"></div>
+      <div id="responseUpdate" class="responseshow"></div>
+    </div>
   </div>
 
   <div id="RetriveP" class="tabcontent">
@@ -202,6 +211,7 @@
   </div>
 
   <div id="AddV" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Add a New Voucher</legend>
@@ -227,10 +237,14 @@
           </form>
           </div>
       </div>
-      <div id="responseV"></div>
+      <div id="responseV" class="responseshow">
+
+      </div>
+    </div>
   </div>
 
   <div id="DeleteV" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Delete Voucher</legend>
@@ -243,10 +257,14 @@
           </form>
           </div>
       </div>
-      <div id="responseDeleteV"></div>
+      <div id="responseDeleteV" class="responseshow">
+
+      </div>
+    </div>
   </div>
 
   <div id="UpdateV" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Update Voucher</legend>
@@ -280,6 +298,11 @@
           </form>
           </div>
       </div>
+
+      <div id="responseUpdateV" class="responseshow">
+        
+      </div>
+    </div>
   </div>
 
   <div id="RetriveV" class="tabcontent">
@@ -305,6 +328,7 @@
   </div>
 
   <div id="AddPV" class="tabcontent">
+    <div class="showflex">
       <div id="registration-form">
           <div class='fieldset'>
           <legend>Add a New Variable Product</legend>
@@ -329,7 +353,10 @@
           </form>
           </div>
       </div>
-      <div id="responseVariation"></div>
+      <div id="responseVariation" class="responseshow">
+
+      </div>
+    </div>
   </div>
 
   <div id="RetrivePV" class="tabcontent">
@@ -352,6 +379,46 @@
           </div>
       </div>
   </div>
+
+  <div id="DeleteAu" class="tabcontent">
+    <div class="showflex">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Delete out of stock products</legend>
+          <table id="voucherTable">
+              <thead>
+                <form id="deleteAuForm">
+                  <input id="deleteAuDis" type="submit" value="Delete Automately"></button>
+              </form>
+              </thead>
+          </table>
+          </div>
+      </div>
+      <div id="deleteResult" class="responseshow">
+    </div>
+  </div>
+  </div>
+
+  <div id="UpdateAu" class="tabcontent">
+    <div class="showflex">
+      <div id="registration-form">
+          <div class='fieldset'>
+          <legend>Update Product Prices</legend>
+          <table id="voucherTable">
+              <thead>
+                <form id="updateAuForm">
+                  <input id="updateAuDis" type="submit" value="Update Automately"></button>
+              </form>
+              </thead>
+          </table>
+          </div>
+      </div>
+      <div id="updateResult" class="responseshow">
+    </div>
+  </div>
+  </div>
+
+
   </section>
   
   <script src="script.js"></script>

@@ -35,16 +35,21 @@ do {
     $page++;
 } while (!empty($products));
 
+$output = '';
+
 if (!empty($out_of_stock_products)) {
     foreach ($out_of_stock_products as $product) {
         // Delete the out-of-stock products
         $response = $woocommerce->delete('products/' . $product->id, ['force' => true]);
         if ($response->status == 'trash') {
-            echo "Failed to delete product";
+            $output .= "Failed to delete product: " . $product->name . " (ID: " . $product->id . ")\n";
         } else {
-            echo "Deleted product: " . $product->name . " (ID: " . $product->id . ")\n";
+            $output .= "<p class='responseText'>Deleted product: " . $product->name . " (ID: " . $product->id . ")</p>\n";
         }
     }
 } else {
-    echo "No out-of-stock products found.";
+    $output = "<p class='responseText'>No out-of-stock products found.</p>";
 }
+
+echo nl2br($output);
+?>

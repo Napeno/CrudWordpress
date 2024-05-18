@@ -21,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $woocommerce->delete('coupons/' . $voucher_id, ['force' => true]);
-        echo "Voucher deleted successfully.<br>";
+        echo "<img id='imgres5' src='/finish-01.png'>";
+        echo "<p class='responseText'>Voucher deleted successfully.</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to create product: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {

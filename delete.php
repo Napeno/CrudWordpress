@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $woocommerce->delete("products/{$product_id}", ['force' => true]);
-        echo "Product deleted successfully.<br>";
+        echo "<img id='imgres2' src='/finish-01.png'>";
+        echo "<p class='responseText'>Product deleted successfully.</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to create product: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {

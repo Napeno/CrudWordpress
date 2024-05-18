@@ -36,7 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     try {
         $response = $woocommerce->post('coupons', $voucher_data);
-        echo "New voucher created successfully.<br>";
+        echo "<img id='imgres4' src='/finish-01.png'>";
+        echo "<p class='responseText'>New voucher created successfully.</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to create voucher: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {

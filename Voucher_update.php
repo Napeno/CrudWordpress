@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     try {
         $response = $woocommerce->put('coupons/' . $voucher_id, $updated_voucher_data);
-        echo "Voucher updated successfully.<br>";
+        echo "<img id='imgres6' src='/finish-01.png'>";
+        echo "<p class='responseText'>Voucher updated successfully.</p><br>";
     } catch (HttpClientException $e) {
         echo "Failed to update voucher: " . $e->getMessage() . "<br>";
         if ($e->getResponse()) {
